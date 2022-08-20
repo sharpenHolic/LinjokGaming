@@ -28,14 +28,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 
 # The following folder will be included, 保证找到对应位置的头文件
-include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/games)
 # 配置版本信息 从 in 到 h
 configure_file(${PROJECT_SOURCE_DIR}/include/configure.h.in ${PROJECT_SOURCE_DIR}/include/configure.h)
-
 
 # 包含下层目录
 add_subdirectory(games)
 
 # add the executable 指定使用哪些源文件来编译生成目标文件
 add_executable(main ${PROJECT_SOURCE_DIR}/main.cpp ${PROJECT_SOURCE_DIR}/src/menu.cpp)
+target_link_libraries(main ${PROJECT_SOURCE_DIR}/libs)
 
