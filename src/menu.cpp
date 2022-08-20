@@ -8,8 +8,17 @@
  */
 #include "menu.h"
 
+void Menu::startSystem()
+{
+    showVersion();
+    showSelectInterface();
+    acceptOption();
+}
+
 void Menu::showVersion()
 {
+    std::cout << "-+-+-linjok Gaming!-+-+-" << std::endl;
+    std::cout << "rock-paper-scissors" << std::endl;
     std::cout << " Version " << LinjokGaming_VERSION_MAJOR << "."
               << LinjokGaming_VERSION_MINOR << std::endl;
 }
@@ -21,28 +30,37 @@ void Menu::showSelectInterface()
     std::cout << "-------  1-> 游戏菜单  ----------" << std::endl;
     std::cout << "-------  2-> 帮   助   ----------" << std::endl;
     std::cout << "-------  3-> 开发人员   ---------" << std::endl;
-    std::cout << "-------  3-> 退出系统   ---------" << std::endl;
+    std::cout << "-------  4-> 退出系统   ---------" << std::endl;
     std::cout << "--------------------------------" << std::endl;
-    std::cout << "select:__\b\b" << std::endl;
+    std::cout << "select:__\b\b";
+    std::cin >> m_option;
 }
 
-void Menu::acceptOption(const int &option)
+void Menu::acceptOption()
 {
+    if (!parseOption()) {
+        std::cout << "please input <1-4>" << std::endl;
+        showSelectInterface();
+    }
 
-    if (option == 1)
+    if (m_option == 1)
     {
     }
 
-    if (option == 2)
+    if (m_option == 2)
     {
     }
 
-    if (option == 3)
+    if (m_option == 3)
+    {
+    }
+
+    if (m_option == 4)
     {
     }
 }
 
-bool Menu::parseOption(const int &option)
+bool Menu::parseOption()
 {
     // check if the option valid
     return true;
