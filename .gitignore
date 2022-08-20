@@ -1,5 +1,5 @@
 build/
 bin/
 .vscode/
-latex/
-heml/
+latex/*
+heml/*
