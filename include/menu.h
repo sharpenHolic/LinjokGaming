@@ -16,7 +16,7 @@ class Menu
 {
 
 private:
-    Menu(/* args */) = default; //默认构造使用（不要实现一遍）
+    Menu(/* args */) : m_option(0) {}; //默认构造使用（不要实现一遍）
     ~Menu() = default;
 
 public:
@@ -31,13 +31,17 @@ public:
     }
 
 public:
+    void startSystem();
+    void exitSystem();
+
+private:
     void showVersion();
     void showSelectInterface();
-    void acceptOption(const int &option);
-
-private:
-    bool parseOption(const int &);
-
+    void acceptOption();
+    bool parseOption();
+    
+    
 private:
     // some member
+    int m_option; //思考：option用栈的方式压入，方便回退
 };

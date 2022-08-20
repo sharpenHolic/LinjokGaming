@@ -17,10 +17,7 @@ int main(int argc, char **argv)
 
     while (GAME_START)
     {
-        cout << "-+-+-linjok Gaming!-+-+-" << endl;
-        cout << "rock-paper-scissors" << endl;
-        gameMenu.showVersion();
-        gameMenu.showSelectInterface();
+        gameMenu.startSystem();
     }
 
     return 0;
