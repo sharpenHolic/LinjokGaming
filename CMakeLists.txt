@@ -16,6 +16,7 @@ message(STATUS "Project Directory: ${PROJECT_SOURCE_DIR}")
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+
 # 默认存放静态库的文件夹位置
 # 静态库
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/libs) 
@@ -37,5 +38,5 @@ add_subdirectory(games)
 
 # add the executable 指定使用哪些源文件来编译生成目标文件
 add_executable(main ${PROJECT_SOURCE_DIR}/main.cpp ${PROJECT_SOURCE_DIR}/src/menu.cpp)
-target_link_libraries(main ${PROJECT_SOURCE_DIR}/libs)
+target_link_libraries(main ${PROJECT_SOURCE_DIR}/libs/libGamesLib.a ${PROJECT_SOURCE_DIR}/libs/libMarioLib.a)
 

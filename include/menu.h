@@ -2,13 +2,15 @@
  * @Author: john 1142008606slam@gmail.com
  * @Date: 2022-08-17 22:19:14
  * @LastEditors: john 1142008606slam@gmail.com
- * @LastEditTime: 2022-08-20 16:52:40
+ * @LastEditTime: 2022-08-21 19:57:40
  * @FilePath: /LinjokGaming/include/menu.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #pragma once
 #include <iostream>
 #include "configure.h"
+#include "games.h"
+#include "mario/mario.h"
 #define GAME_START 1
 #define GAME_CLEAR_SCREEN system("clear");
 
@@ -16,7 +18,7 @@ class Menu
 {
 
 private:
-    Menu(/* args */) : m_option(0) {}; //默认构造使用（不要实现一遍）
+    Menu(/* args */) : m_option(0){}; //默认构造使用（不要实现一遍）
     ~Menu() = default;
 
 public:
@@ -39,9 +41,17 @@ private:
     void showSelectInterface();
     void acceptOption();
     bool parseOption();
-    
-    
+
+public:
+    // 初始化游戏内容
+    void initialSystem();
+
+private:
+    // option 1: 展示游戏列表
+    void showOptionGameLists();
+
 private:
     // some member
     int m_option; //思考：option用栈的方式压入，方便回退
+    Games m_games;
 };
